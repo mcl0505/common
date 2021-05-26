@@ -7,7 +7,7 @@ import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Looper
 import android.util.Log
-import extension.yes
+import com.mcl.common.ext.yes
 import java.io.*
 import java.text.SimpleDateFormat
 import java.util.*
