@@ -13,7 +13,7 @@ import com.mcl.common.CommonConfig
 object ToastUtil {
     private var time: Long = 0
     private var oldMsg: String? = null
-    fun toast(msg:String = ""){
+    fun show(msg:String = ""){
         if (msg != oldMsg) {
             create(msg)
             time = System.currentTimeMillis()
