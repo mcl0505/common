@@ -37,12 +37,12 @@ object MmkvUtil {
      * 取数据
      */
     fun <T> getValue(key: String,default:T):T = when(default){
-        is Int -> kv.decodeInt(key) as T
-        is String -> kv.decodeString(key) as T
-        is Long -> kv.decodeLong(key) as T
-        is Float -> kv.decodeFloat(key) as T
-        is Double -> kv.decodeDouble(key) as T
-        is Boolean -> kv.decodeBool(key) as T
+        is Int -> kv.decodeInt(key, default) as T
+        is String -> kv.decodeString(key, default) as T
+        is Long -> kv.decodeLong(key, default) as T
+        is Float -> kv.decodeFloat(key, default) as T
+        is Double -> kv.decodeDouble(key, default) as T
+        is Boolean -> kv.decodeBool(key, default) as T
         else -> default
     }
 

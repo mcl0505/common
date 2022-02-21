@@ -11,10 +11,23 @@ import com.mcl.common.CommonConfig
  * 功能描述： 吐司工具类   Android 11 Toast的setView 被废弃，采用基础使用
  */
 object ToastUtil {
+    private var time: Long = 0
+    private var oldMsg: String? = null
+    fun toast(msg:String = ""){
+        if (msg != oldMsg) {
+            create(msg)
+            time = System.currentTimeMillis()
+        } else {
+            if (System.currentTimeMillis() - time > 2000) {
+                create(msg)
+                time = System.currentTimeMillis()
+            }
+        }
+        oldMsg = msg
+    }
 
-    fun show(content: String?=null) {
-        if (content == null)return
 
-        Toast.makeText(CommonConfig.mContext,content,Toast.LENGTH_SHORT).show()
+    private fun create(massage: String) {
+        Toast.makeText(CommonConfig.mContext,massage,Toast.LENGTH_SHORT).show()
     }
 }
