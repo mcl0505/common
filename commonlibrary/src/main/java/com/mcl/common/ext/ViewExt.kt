@@ -3,6 +3,7 @@ package com.mcl.common.ext
 import android.os.SystemClock
 import android.view.View
 import com.mcl.common.R
+import com.mcl.common.util.LogUtil
 
 /**
  * 公司：坤创科技
@@ -18,7 +19,7 @@ fun <T : View> T.singleClick(time: Int = 500, block: (T) -> Unit) {
     this.setOnClickListener {
 
         val curClickTime = SystemClock.uptimeMillis()
-        val lastClickTime = (it.getTag(R.id.singleClickId) as Long) ?: 0
+        val lastClickTime = (it.getTag(R.id.singleClickId) as? Long) ?:0
         if (curClickTime - lastClickTime >= time) {
             // 超过点击间隔后再将lastClickTime重置为当前点击时间
             it.setTag(R.id.singleClickId, curClickTime)
